@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="submit" method="POST">
+        {% csrf_token%}
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="document">Document</label>
+        <input type="text" id="document" name="document" required><br><br>
+        <label for="doc_type">Document Type</label>
+        <select name="doc_type" id="doc_type" required>
+            <option>...</option>
+            <option value="lisence">lisence</option>
+            <option value="education">education</option>
+            <option value="id proof">adhar card</option>
+            <option value="other">other</option>
+        </select>
+        <br><br>
+        <label for="link">Document Link</label>
+        <input type="url" name="link" id="myURL" placeholder="http://www.example.com"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
