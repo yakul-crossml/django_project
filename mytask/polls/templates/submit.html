@@ -10,6 +10,9 @@
     <h3>Submit</h3>
     <form action="show" method="POST">
         {% csrf_token%}
+        {% for data in key1 %}
+        {{ data }}
+        {% endfor %}
         <p>Want to see the expence</p>
         <button type="submit">Show</button>
     </form>
