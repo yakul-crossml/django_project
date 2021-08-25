@@ -65,7 +65,7 @@ def rates(request):
 
 
         
-        
+        # d
 
 
         # movies=Movie.objects.all()
