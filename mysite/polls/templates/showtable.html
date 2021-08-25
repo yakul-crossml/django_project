@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+    {{list}}
 
-
-    <!-- {% block body %} -->
-    {% for data1 in key %}
+    {% for data1 in list %}
         {{ data1.name }}
-        <p>kjdfnklajsfnkjn</p>
+      {{ data1.Documents }}
+      {{ data1.category }}
+      {{  data1.link }}
     {% endfor %}
-    <!-- {% endblock %} -->
-    <!-- <p>fjhakjldfhaifhuidsnfkljsadhfuil</p> -->
-    <body>
+
         
     </body>
 
 </html>
+
+/home/yakul/Desktop/django_project/mysite/polls/views.py
