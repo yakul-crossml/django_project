@@ -66,4 +66,6 @@ class Rating(models.Model):
 	movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
 	rate = models.IntegerField()
 	votes = models.IntegerField() 
+	# def __str__(self):
+	# 	return self.movie
 # Create your models here.

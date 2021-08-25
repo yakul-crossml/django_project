@@ -41,14 +41,36 @@ def movie(request):
 
 def rates(request):
     if request.method == 'POST':
-        movie=request.POST.get('movie')
-        rate=request.POST.get('rate')
-        votes=request.POST.get('votes')
-        if movie == '3 idiots':
-            no_of_votes=
-        movies=Movie.objects.all()
-        # context={'movie':movies}
-        print(movies.votes)
-        table=Rating(movie=movies,rate=rate,votes=votes)
-        table.save()
-        return render(request,'polls/submit.html', context)
+        # movie=request.POST.get('movie')
+        # rate=request.POST.get('rate')
+        # votes=request.POST.get('votes')
+        sum=int(0)
+        a=0
+        data=Rating.objects.all()
+        for ke in data:
+            movie=ke.movie.name
+            print(movie)
+            # breakpoint()
+            # con={'key':data}
+            # print("INSIDE IF ")
+            # for key in data:
+            if movie == "3 idiots":
+                # for key in data:
+                k=ke.rate
+                a=a+1
+                sum=k+sum
+        avg=sum/a
+        print(avg)
+
+
+
+        
+        
+
+
+        # movies=Movie.objects.all()
+        # # context={'movie':movies}
+        # print(movies.votes)
+        # table=Rating(movie=movies,rate=rate,votes=votes)
+        # table.save()
+        return render(request,'polls/submit.html')
