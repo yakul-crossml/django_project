@@ -44,7 +44,7 @@ class Movie(models.Model):
 	avg_rating = models.DecimalField(max_digits=4, decimal_places=2)
 	language = models.CharField(max_length=20)
 	artist = models.ManyToManyField(Artist)
-	duration = models.DecimalField(max_digits=3, decimal_places=2)
+	duration = models.DecimalField(max_digits=4, decimal_places=2)
 	award = models.ManyToManyField(Award, null=True)
 
 
@@ -63,7 +63,7 @@ class Rating(models.Model):
 	Model to save movie and Its ratings
 	"""
 
-	movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+	movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True)
 	rate = models.IntegerField()
 	votes = models.IntegerField() 
 # Create your models here.
