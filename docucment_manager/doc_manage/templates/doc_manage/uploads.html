@@ -1,0 +1,63 @@
+{% if pdf_list %}
+{% for pdfs in pdf_list %}
+    <tr>
+        <th scope="row"></th>
+        <td>{{pdfs.pdf}}</td>
+        <!-- <td>{{pdf.uploaded_at}}</td> --> 
+        <td><a href="{{ pdfs.pdf.url }}" download="{{ pdfs.pdf.url }}" class="btn btn-primary" target="_blank">Download</a></td>
+    </tr><br>
+    {% endfor %}
+{% endif %}
+
+{% if pdf_list %}
+{% for pdfs in pdf_list %}
+    <tr>
+        <th scope="row"> {{forloop.counter}}</th>
+        <td>{{pdfs.pdf}}</td>
+        <td>{{pdfs.created_at}}</td>
+    </tr>
+    {% endfor %}
+{% endif %}
+<form>
+    <input name="report_type" type="hidden" value='sort_by_name'>
+    <button type="submit">Sort By Name </button>
+</form>
+<form>
+    <input name="report_type" type="hidden" value='current_month'>
+    <button type="submit">Current month </button>
+</form>
+<form>
+    <input name="report_type" type="hidden" value='current_year'>
+    <button type="submit">Current year </button>
+</form>
+<form action="{% url 'report' %}" method="POST" class="mx-3">
+    {% csrf_token %}
+    <div>
+      <label for="start" class="mx-1">From </label>
+        <input class="mr-2" type="date" id="start" name="startdate">
+        <label class="mx-1" for="end">To </label>
+        <input class="mx-2" type="date" id="end" name="enddate">
+        <input class="btn btn-primary my-3" type="submit" name="submit" value="Show">
+    </div>
+  </form >
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>File</th>
+        <th>Date</th>
+</tr>
+{% for value in context %}
+<tr>
+    <td>{{value.id}}</td>
+    <!-- <td>{{value.user}}</td> -->
+    <td>{{ value.title }}</td>
+    <td>{{ value.pdfs }}</td>
+<td>{{ value.created_ats }}</td>
+<td><a href="{{ value.pdf.url }}" download="{{ value.pdf.url }}" class="btn btn-primary" target="_blank">Download</a></td>
+</tr>
+{% endfor %}
+</table>
+
+  <p><a href="{% url 'index' %}">Return to home</a></p>
+  <a class="nav-link" href="{% url 'logout' %}"> LOGOUT</a><br><br>

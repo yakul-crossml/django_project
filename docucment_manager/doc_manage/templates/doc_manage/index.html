@@ -1,0 +1,16 @@
+{% extends 'doc_manage/base.html' %}
+
+{% block main %} 
+    <h1>Welcome to Document Management System</h1>
+    {% if user.is_authenticated %}
+        {% for file in files %}
+            <p>{{file.title}}</p>
+            <a href="{{file.data.url}}" download="{{file.data.url}}">Download</a>
+                
+        {% endfor %}
+
+    {% else %}
+        <a href="{% url 'login' %}">login</a>
+    {% endif %}
+
+{% endblock main %}

@@ -1,0 +1,13 @@
+{% extends 'doc_manage/base.html' %}
+
+{% block main %} 
+    <h1>Login from here</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="username">Username </label>
+        <input type="username" name="username" id="email"><br>
+        <label for="pass">Password </label>
+        <input type="password" name="password" id="pass"><br>
+        <input type="submit" name="login" value="Login" id="login">
+    </form>
+{% endblock main %}

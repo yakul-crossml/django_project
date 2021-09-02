@@ -1,0 +1,24 @@
+{% extends 'doc_manage/base.html' %}
+
+{% block main %} 
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+        {% endfor %}
+        <input type="submit" name="signup" id="signup" value="submit">
+    </form>
+    
+    {% if massages %}
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+{% endif %}
+{% endblock main %}

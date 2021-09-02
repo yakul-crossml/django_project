@@ -1,0 +1,12 @@
+{% extends 'doc_manage/base.html' %}
+
+{% block main %} 
+upload
+<form method='POST' action="{% url 'upload' %} " enctype='multipart/form-data'>
+ {% csrf_token %}
+    Title : {{ form.title }}
+    PDF : {{ form.pdf }}
+ <input type="submit" name="Upload">
+</form>
+
+{% endblock main %}
