@@ -58,7 +58,7 @@ def topten(req):
     """
     Show top ten rated movies
     """
-    movies = Movie.objects.all().order_by('-avg_rating')[:5]
+    movies = Movie.objects.all().order_by('-avg_rating')[:10]
     return render(req, 'reward/display.html', {"context": movies})
 
 
@@ -66,7 +66,7 @@ def leastten(req):
     """
     Show ten least rated movies
     """
-    movies = Movie.objects.all().order_by('avg_rating')[:5]
+    movies = Movie.objects.all().order_by('avg_rating')[:10]
     return render(req, 'reward/display.html', {"context": movies})
 
 
