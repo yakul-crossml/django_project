@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.css">
+
+</head>
+
+<body>
+    <table class="project_table table table-bordered " id="project_table" name="project_table">
+        <thead>
+            <tr>
+                <th>
+                    dob
+                </th>
+                <th>
+
+                    phone_number
+                </th>
+                <th>
+                    joining_date
+                </th>
+                <th>address</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+<button class='test' id='test' name='test'> test</button>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js "></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.noConflict();
+        var oTable = $('.project_table').dataTable({
+            // ...
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{% url 'employee_list_json' %}"
+
+
+        });
+    });
+</script>
+
+<script>
+    $(".test").click(function() {
+        alert("The paragraph was clicked.");
+    });
+</script>
